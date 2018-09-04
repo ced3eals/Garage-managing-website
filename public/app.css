@@ -4,7 +4,7 @@ body {
 
 body::after{
   content: "";
-  background: url(http://cdn.wallwuzz.com/uploads/backgrounds-desktop-originalimages-wallpaper-underground-car-cars-garage-carsgallery-wallpapers-wallwuzz-hd-wallpaper-11769.jpg);
+  background: url(https://cdn.pixabay.com/photo/2018/07/26/16/14/cars-3564022_1280.jpg);
   opacity: 0.7;
   background-size: 100%;
   top: 0;

@@ -21,14 +21,14 @@
   </head>
   <body>
     <header class="container u-full-width">
-      <h1 class="three columns">Lincey</h1>
+      <h1 class="two columns"><img class="img-responsive center-block" src="http://getdrawings.com/image/car-logo-drawing-52.png" </></h1>
       <nav>
         <a href="index.html"><button type="button" class="two columns home active">Home</button></a>
         <a href="create.html"><button type="button" class="two columns create">Create</button></a>
         <a href="view.html"><button type="button" class="two columns view">View</button></a>
       </nav>
     </header>
-    
+        <h1 class="text-center">Welcome to Lincey App!</h1>
     <!-- Jumbotron with Carousel-->
 <div id="carousel-cars" class="carousel slide" data-ride="carousel">
     <!-- Wrapper for slides -->
@@ -43,32 +43,16 @@
                 </div>
             </div>
         </div>
-        @if (Request.IsAuthenticated)
-        {
-            <div class="item bg bg2">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h2>Book a car</h2>
-                        <p>Get your car in two steps!</p>
-                        @Html.ActionLink("Hire A Car", "BookCar", "Home", null, new { @class = "btn btn-primary" })
-                        <br />
-                    </div>
-                </div>
-            </div>
-        }
-        else
-        {
+      
             <div class="item bg bg2">
                 <div class="container">
                     <div class="carousel-caption">
                         <h2>You don't have an accont ? Register to rent a Car !</h2>
                         <p>Get your car in two steps!</p>
-                        @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary" })
                         <br />
                     </div>
                 </div>
             </div>
-        }
 
         <div class="item bg bg3">
             <div class="carousel-caption">
@@ -79,20 +63,18 @@
     </div>
     <!-- Controls -->
     <a class="left carousel-control" href="#carousel-cars" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </a>
     <a class="right carousel-control" href="#carousel-cars" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
 </div>
     
     <main class="container">
       <h1>Welcome to Lincey App!</h1>
-      <div >
-        <img class="img-responsive center-block" src="http://getdrawings.com/image/car-logo-drawing-52.png" </>
-      </div>
+
       <article id="main-content" class="eleven columns">
         <h3>Imagine this scenario:</h3>
         <p>Lincey is a platform that allows a company to run very well. It allows the management of all the products (here cars) who enters and exits the garage. It is an hierarchic platform that is easy to handle.</p>

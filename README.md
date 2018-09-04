@@ -1,11 +1,6 @@
 #Dream Car Garage
 
-Welcome to Dream Car Garage. You just won $1 Million dollars and get to spend it on 5 cars.
-
-Pick your cars and compare your list to that of your friends.
-
-Web App live on heroku:
-[https://dreamcargarage.herokuapp.com/index.html]
+Welcome to Lincey Garage. LINCEY is a platform for a company which allows all the group directors to add, delete and modify cars that enters to their garage. And there will be a super User Admin who can access to all the garage and delete them if he wants.
 
 ##About the Project
 

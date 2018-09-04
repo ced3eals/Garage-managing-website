@@ -1,0 +1,198 @@
+body {
+  font-family: 'Lora', serif;
+}
+
+body::after{
+  content: "";
+  background: url(http://cdn.wallwuzz.com/uploads/backgrounds-desktop-originalimages-wallpaper-underground-car-cars-garage-carsgallery-wallpapers-wallwuzz-hd-wallpaper-11769.jpg);
+  opacity: 0.7;
+  background-size: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;
+}
+
+h1, h2, h3 {
+  font-family: 'PT Sans', sans-serif;
+}
+
+h1 {
+  color:#FFCB0D;
+  text-shadow: 1px 3px 1px #000;
+}
+
+button {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.5rem;
+  color: #EAA023;
+  margin-right: 2px;
+  margin-top: 8px;
+  text-transform: none;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid #000000;
+  background-color: #1C4B11;
+  -webkit-box-shadow: 1px 5px 2px 0px #000000;
+  -moz-box-shadow:    1px 5px 2px 0px #000000;
+  box-shadow:         1px 5px 2px 0px #000000;
+}
+
+button:active {
+  -webkit-box-shadow: 0 2px 0 #000000;
+  -moz-box-shadow: 0 2px 0 #000000;
+  box-shadow: 0 2px 0 #000000;
+  transform: translateY(3px);
+  color: #1C4B11;
+  background-color: #EAA023;
+}
+
+button:hover {
+  color: silver;
+}
+
+button:focus {
+  color: silver;
+}
+
+.active {
+  background-color: #FFCB0D;
+  color: #1C4B11;
+}
+
+button a {
+  text-decoration: none;
+  color: silver;
+}
+
+ul {
+  margin: 10px auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-radius: 12px;
+  opacity: .9;
+}
+
+th {
+  font-family: 'PT Sans', sans-serif;
+}
+
+#add {
+  margin-top: 29px;
+}
+
+#remove {
+  padding-left: 11px;
+  padding-right: 10px
+}
+
+.user-info th, td, th{
+  color: #FFCB0D;
+  background-color: #1C4B11;
+  text-align: center;
+  border: 2.5px solid #000;
+  border-collapse: collapse;
+}
+
+.user-info th {
+  background-color: #FFCB0D;
+  color: #014225;
+  font-weight: bolder;
+  font-size: 1.1em;
+}
+
+tr:hover td{
+  background-color: #FFCB0D;
+  color: #014225;
+}
+
+.warning {
+  background-color: red;
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #000;
+  border-radius: 1px;
+  text-align: center;
+  padding: 7px;
+}
+
+.success {
+  background-color: #EAA023;
+  font-family: 'PT Sans', sans-serif;
+  color: #000;
+  font-weight: bold;
+  border: 1px solid #000;
+  border-radius: 1px;
+  text-align: center;
+  padding: 7px;
+  text-shadow: 0 0 0 #000;
+}
+
+.success a {
+  text-decoration: none;
+  color: #014225;
+}
+
+fieldset {
+  border: 2px solid #1C4B11;
+  color:#FFCB0D;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-radius: 10px;
+  display: inline;
+  text-shadow: 1px 3px 1px #000;
+}
+
+#main-content {
+  background-color: lightgrey;
+  opacity: .7;
+  padding: 10px;
+  border-radius: 3px;
+  color: #1C4B11;
+}
+
+input {
+  font-family: 'Lora', serif;
+  color: #1C4B11;
+}
+
+img {
+  height: 408px;
+  width: 877px;
+}
+
+#picture-container {
+  position: absolute;
+  height: 400px;
+  overflow: hidden;
+  z-index: 100;
+  opacity: 1;
+}
+
+#picture-container img {
+    position: relative;
+    top: 0px;
+    transition: top .9s ease-in-out;
+}
+
+#cost5 {
+  padding-right: 1px;
+}
+
+#sort-email {
+  margin-bottom: 40px;
+}
+
+#remove {
+  font-size: 1.3rem;
+}
+
+.header-404 {
+  text-align: center;
+  color: #FFCB0D;
+}

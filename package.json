@@ -1,0 +1,23 @@
+{
+  "name": "lincey_garage",
+  "version": "1.0.0",
+  "description": "Welcome to Lincey Gestion. You can manage garages by adding cars and commentary",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    //"url": "git+https://github.com/nickuhn/lincey_garage.git"
+  },
+  "author": "Cédric, Mathieu"
+  "license": "ISC",
+  /*"bugs": {
+    "url": "https://github.com/nickuhn/lincey_garage/issues"
+  },*/
+  
+  "dependencies": {
+    "express": "^4.12.4"
+  }
+}

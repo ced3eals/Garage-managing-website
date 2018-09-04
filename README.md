@@ -1,37 +1,22 @@
-Welcome to Glitch
-=================
+#Dream Car Garage
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+Welcome to Dream Car Garage. You just won $1 Million dollars and get to spend it on 5 cars.
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+Pick your cars and compare your list to that of your friends.
 
-Find out more [about Glitch](https://glitch.com/about).
+Web App live on heroku:
+[https://dreamcargarage.herokuapp.com/index.html]
 
+##About the Project
 
-Your Project
-------------
+Index.html is a landing page to explain the site, and how it all works. From there the user can continue on to either create their garage or view other people's lists.
 
-### ← README.md
+#### Create Your Garage
 
-That's this file, where you can tell people what your cool website does and how you built it.
+On the create page the user can put in some information about themselves and create their garage.
 
-### ← index.html
+They can then add 5 cars to the garage and as long as the total cost is under $1M the garage can be saved and posted. The cars are added by entering the year make model and cost.
 
-Where you'll write the content of your website. 
+#### Viewing Other Garages
 
-### ← style.css
-
-CSS files add styling rules to your content.
-
-### ← script.js
-
-If you're feeling fancy you can add interactivity to your site with JavaScript.
-
-### ← assets
-
-Drag in `assets`, like images or music, to add them to your project
-
-Made by [Fog Creek](https://fogcreek.com/)
--------------------
-
-\ ゜o゜)ノ
+The user can view a list of other garages with the user info shown along side.

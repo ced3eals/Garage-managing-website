@@ -4,7 +4,7 @@ body {
 
 body::after{
   content: "";
-  background: url(https://cdn.pixabay.com/photo/2018/07/26/16/14/cars-3564022_1280.jpg);
+  background: url(https://cdn.pixabay.com/photo/2014/06/04/16/36/car-repair-362150_1280.jpg);
   opacity: 0.7;
   background-size: 100%;
   top: 0;

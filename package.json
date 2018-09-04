@@ -7,15 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    //"url": "git+https://github.com/nickuhn/lincey_garage.git"
-  },
-  "author": "Cédric, Mathieu"
+
+  "author": "Cédric, Mathieu",
   "license": "ISC",
-  /*"bugs": {
-    "url": "https://github.com/nickuhn/lincey_garage/issues"
-  },*/
   
   "dependencies": {
     "express": "^4.12.4"

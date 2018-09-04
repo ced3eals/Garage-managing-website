@@ -5,7 +5,7 @@ body {
 body::after{
   content: "";
   background: url(https://cdn.pixabay.com/photo/2014/06/04/16/36/car-repair-362150_1280.jpg);
-  opacity: 0.7;
+  opacity: 1;
   background-size: 100%;
   top: 0;
   left: 0;
@@ -149,8 +149,8 @@ fieldset {
 }
 
 #main-content {
-  background-color: lightgrey;
-  opacity: .7;
+  background-color: white;
+  opacity: 1;
   padding: 10px;
   border-radius: 3px;
   color: #1C4B11;

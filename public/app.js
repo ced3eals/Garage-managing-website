@@ -73,6 +73,7 @@ $(function() {
                                       .append($('<td>').text(garageList[key].cars[j].model))
                                       .append($('<td>').text(garageList[key].cars[j].color))
                                       .append($('<td>').text(garageList[key].cars[j].cost))
+                                      .append($('<td>').text(garageList[key].cars[j].reparation))
                                       );
       }
       tableCounter ++;
@@ -102,11 +103,13 @@ $(function() {
           var make  = $('#make').val();
           var model = $('#model').val();
           var cost  = $('#cost').val();
+          var reparation = $('#reparation').val();
           $('#color' + counter).text(color);
           $('#year' + counter).text(year);
           $('#make' + counter).text(make);
           $('#model' + counter).text(model);
           $('#cost' + counter).text(cost);
+           $('#reparation' + counter).text(reparation);
           $('#total-cost').text(total);
           counter ++;
           $(':input','.new-car').val('');

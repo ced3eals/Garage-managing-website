@@ -5,12 +5,13 @@ $(function() {
   var garagesRef   = ref.child('garage');
   var counter      = 1;
 
-  function Car(color, year, make, model, cost) {
+  function Car(color, year, make, model, cost, reparation) {
     this.color = color;
     this.year  = year;
     this.make  = make;
     this.model = model;
     this.cost  = cost;
+    this.reparation = reparation;
   }
 
   function Garage(firstName, lastName, email, password) {
@@ -21,8 +22,8 @@ $(function() {
     this.cars      = [];
   }
 
-  Garage.prototype.addCars = function(color, year, make, model, cost){
-    this.cars.push(new Car(color, year, make, model, cost));
+  Garage.prototype.addCars = function(color, year, make, model, cost, reparation){
+    this.cars.push(new Car(color, year, make, model, cost, reparation));
   };
 
   //clears the most recently populated row on the create page.
@@ -38,6 +39,8 @@ $(function() {
     $('#make' + counter).text('');
     $('#model' + counter).text('');
     $('#cost' + counter).text(0);
+    $('#reparation' + counter).text('');
+    
   }
   };
 
@@ -81,7 +84,7 @@ $(function() {
     var year  = $('#year').val();
     var check = parseInt(year);
     $('.warning').remove();
-      if (1750 < check && check < 2100) {
+      if (1970 < check && check < 2200) {
         var total = 0;
         var cost1 = parseInt($('#cost1').text(), 10);
         var cost2 = parseInt($('#cost2').text(), 10);

@@ -6,25 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Lincey App</title>
-    
+
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="skeleton.css">
     <link rel="stylesheet" type="text/css" href="app.css">
     <link rel="stylesheet" type="text/css" href="boostrap.css">
-    
-    
+
+
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora|PT+Sans" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.6/firebase.js"></script>
     <script src="app.js" type="text/javascript"></script>
     <script src="boostrap.js" type="text/javascript"></script>
+      <script src="https://unpkg.com/vue/dist/vue.js"></script>
   </head>
   <body>
- 
-    
+
+
        <!-- Navigation bar -->
+       <div id="carApp">
     <div class="navbar navbar-default navbar-fixed-top navbar-style">
         <div class="container">
             <div class="navbar-header">
@@ -47,110 +49,90 @@
                     <a href="sign_in.html"><button type="button">Sign In</button></a>
                   <a class="text-center">         Welcome to Lincey App!</a>
 				</ul>
-              
+
             </div>
         </div>
     </div>
-    
-    
+
+
     <section class="container u-full-width">
-      <form class="new-car">
+
+      <form v-on:submit='addCar'>
         <fieldset class="u-full-width">
           <legend class="legend">Add New Car</legend>
           <div class="row">
             <div class="two columns">
               <label for="color" class="data">Color:</label>
-              <input type="text" id="color" class="color u-full-width" placeholder="Color" required="required" />
+              <input type="text"  class="color u-full-width"  v-model='cars.color' placeholder="Color" required="required" />
             </div>
             <div class="two columns">
               <label for="year" class="data">Year:</label>
-              <input type="number" id="year" class="year u-full-width" placeholder="Year" required="required" />
+              <input type="number"  class="year u-full-width"  v-model='cars.date' placeholder="Year" required="required" />
             </div>
             <div class="two columns">
               <label for="make" class="data">Make:</label>
-              <input type="text" id="make" class="make u-full-width" placeholder="Make" required="required" />
+              <input type="text"  class="make u-full-width"  v-model='cars.make' placeholder="Make" required="required" />
             </div>
             <div class="two columns">
               <label for="model" class="data">Model:</label>
-              <input type="text" id="model" class="model u-full-width" placeholder="Model" required="required" />
+              <input type="text"  class="model u-full-width"  v-model='cars.model' placeholder="Model" required="required" />
             </div>
             <div class="two columns">
               <label for="cost" class="data">Cost:</label>
-              <input type="number" id="cost" class="cost u-full-width" placeholder="Cost" required="required" />
+              <input type="number"  class="cost u-full-width"  v-model='cars.cost' placeholder="Cost" required="required" />
             </div>
             <div class="two columns">
               <label for="reparation" class="data">Cost:</label>
-              <input type="text" id="reparation" class="cost u-full-width" placeholder="Reparation" required="required" />
+              <input type="text"  class="cost u-full-width"  v-model='cars.reparation' placeholder="Reparation" required="required" />
             </div>
             <div class="two columns">
-              <button id="add" type="button" class="u-full-width">Add Car</button>
+
+              <button type="submit" value='Add' class="u-full-width">Add Car</button>
             </div>
           </div>
-          <div class="row">
-            <div class="two columns offset-by-ten columns">
-              <button id="remove" type="button" class="u-full-width">Remove Last Car</button>
-             </div>
-          </div>
+
         </fieldset>
       </form>
     </section>
+
+
     <section class="container u-full-width">
       <div class="row">
         <table class="twelve columns">
           <thead>
-            <tr>
+
               <th>Color</th>
               <th>Year</th>
               <th>Make</th>
               <th>Model</th>
               <th>Cost</th>
               <th>Réparation</th>
-              <th>Total</th>
-            </tr>
+
+
           </thead>
-          <tbody id="car-table">
-            <tr>
-              <td id="color1"></td>
-              <td id="year1"></td>
-              <td id="make1"></td>
-              <td id="cost1">0</td>
-              <td id="reparation1"></td>
-              
-            </tr>
-            <tr>
-              <td id="color2"></td>
-              <td id="year2"></td>
-              <td id="make2"></td>
-              <td id="cost2">0</td>
-               <td id="reparation2"></td>
-            </tr>
-            <tr>
-              <td id="color3"></td>
-              <td id="year3"></td>
-              <td id="make3"></td>
-              <td id="cost3">0</td>
-               <td id="reparation3"></td>
-            </tr>
-            <tr>
-              <td id="color4"></td>
-              <td id="year4"></td>
-              <td id="make4"></td>
-              <td id="cost4">0</td>
-               <td id="reparation4"></td>
-            </tr>
-            <tr>
-              <td id="color5"></td>
-              <td id="year5"></td>
-              <td id="make5"></td>
-              <td id="cost5">0</td>
-              <td id="reparation5"></td>
-              <td id="total-cost"></td>
-               
+
+          <tbody>
+            <tr v-for='car in cars'>
+
+            <td><car-component v-bind:car="car"> </car-component></td>
+              <td><car-date v-bind:car="car"> </car-date></td>
+              <td><car-make v-bind:car="car"> </car-make> </td>
+              <td><car-model v-bind:car="car"> </car-model></td>
+              <td><car-cost v-bind:car="car"> </car-cost> </td>
+              <td><car-reparation v-bind:car="car"> </car-reparation> </td>
+
+              <td><button class="btn btn-danger btn-block" v-on:click="deleteCar(car)">Delete</button></td>
+              <td> click on the data to edit and then press enter to save</td>
+
             </tr>
           </tbody>
         </table>
       </div>
     </section>
+
+
+
+
     <section class="container u-full-width">
       <form class="garage-owner-info">
         <fieldset class="u-full-width">
@@ -180,8 +162,171 @@
               <p>Once you've created your garage you can retrieve and edit it by entering your first name, last name and your password.</p>
             </div>
           </div>
+
         </fieldset>
       </form>
     </section>
+  </div>
+
+    <script>
+var CarComponent = Vue.extend({
+  data: function(){
+    return{
+      inEditMode: false
+    }
+  },
+  props: ['car'],
+  template:'<div> <span v-on:click="clicked" v-show="!inEditMode"> {{ car.color }} </span> <input v-on:keyup.enter="saved" v-model="car.color" v-show="inEditMode"/> </div>',
+  methods:{
+    clicked: function(){
+      this.inEditMode = true;
+    },
+    saved: function(){
+      this.inEditMode = false;
+    }
+  }
+});
+Vue.component('car-component', CarComponent);
+
+
+
+
+var CarDate = Vue.extend({
+  data: function(){
+    return{
+      inEditMode: false
+    }
+  },
+  props: ['car'],
+  template:'<div> <span v-on:click="clicked" v-show="!inEditMode"> {{ car.date }} </span> <input v-on:keyup.enter="saved" v-model="car.date" v-show="inEditMode"/> </div>',
+  methods:{
+    clicked: function(){
+      this.inEditMode = true;
+    },
+    saved: function(){
+      this.inEditMode = false;
+    }
+  }
+});
+Vue.component('car-date', CarDate);
+
+var Carmake = Vue.extend({
+  data: function(){
+    return{
+      inEditMode: false
+    }
+  },
+  props: ['car'],
+  template:'<div> <span v-on:click="clicked" v-show="!inEditMode"> {{ car.make }} </span> <input v-on:keyup.enter="saved" v-model="car.make" v-show="inEditMode"/> </div>',
+  methods:{
+    clicked: function(){
+      this.inEditMode = true;
+    },
+    saved: function(){
+      this.inEditMode = false;
+    }
+  }
+});
+
+Vue.component('car-make', Carmake);
+
+
+
+var Carmodel = Vue.extend({
+  data: function(){
+    return{
+      inEditMode: false
+    }
+  },
+  props: ['car'],
+  template:'<div> <span v-on:click="clicked" v-show="!inEditMode"> {{ car.model }} </span> <input v-on:keyup.enter="saved" v-model="car.model" v-show="inEditMode"/> </div>',
+  methods:{
+    clicked: function(){
+      this.inEditMode = true;
+    },
+    saved: function(){
+      this.inEditMode = false;
+    }
+  }
+});
+
+Vue.component('car-model', Carmodel);
+
+var Carcost = Vue.extend({
+  data: function(){
+    return{
+      inEditMode: false
+    }
+  },
+  props: ['car'],
+  template:'<div> <span v-on:click="clicked" v-show="!inEditMode"> {{ car.cost }} </span> <input v-on:keyup.enter="saved" v-model="car.cost" v-show="inEditMode"/> </div>',
+  methods:{
+    clicked: function(){
+      this.inEditMode = true;
+    },
+    saved: function(){
+      this.inEditMode = false;
+    }
+  }
+});
+
+Vue.component('car-cost', Carcost);
+
+
+
+var Carreparation = Vue.extend({
+  data: function(){
+    return{
+      inEditMode: false
+    }
+  },
+  props: ['car'],
+  template:'<div> <span v-on:click="clicked" v-show="!inEditMode"> {{ car.reparation }} </span> <input v-on:keyup.enter="saved" v-model="car.reparation" v-show="inEditMode"/> </div>',
+  methods:{
+    clicked: function(){
+      this.inEditMode = true;
+    },
+    saved: function(){
+      this.inEditMode = false;
+    }
+  }
+});
+
+Vue.component('car-reparation', Carreparation);
+
+    var carApp = new Vue({
+      el: '#carApp',
+
+      data: {
+        function(){
+          return{
+            inEditMode:false
+          }
+        },
+        cars: []
+
+      },
+      methods: {
+        addCar: function(e) {
+          e.preventDefault();
+          this.cars.push({
+            color: this.cars.color,
+            date: this.cars.date,
+            make: this.cars.make,
+            model: this.cars.model,
+            cost: this.cars.cost,
+            reparation: this.cars.reparation,
+            done: false
+          });
+
+        },
+
+
+        deleteCar: function(car) {
+          this.cars.splice(this.cars.indexOf(car), 1)
+        }
+      }
+    });
+    </script>
   </body>
 </html>

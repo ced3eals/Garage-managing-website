@@ -3,12 +3,12 @@
 var express = require('express');
 var app = express();
 
-app.use(express.static('view'));
+app.use(express.static('public'));
 
 app.use('/', function (req, res, next) {
 
   var options = {
-    root: __dirname + '/view/',
+    root: __dirname + '/public/',
     dotfiles: 'deny',
     headers: {
         'x-timestamp': Date.now(),

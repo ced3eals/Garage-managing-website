@@ -1,35 +1,26 @@
 var express = require('express');
-var app = express();
+var bodyParser = require('body-parser');
 var sessions = require('express-session');
 
+
+var app = express();
 var session;
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
+app.use(session({
+  secret: 'uinjmiomlnôpùçiyè_yoiulhnkj'
+}))
 
 app.use(express.static('public'));
 
-app.use('/', function (req, res, next) {
-
-  var options = {
-    root: __dirname + '/public/',
-    dotfiles: 'deny',
-    headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
-    }
-  };
-
-  var fileName = req.params.name;
-  res.sendFile('./404.html', options, function (err) {
-    if (err) {
-      console.log(err);
-      res.status(err.status).end();
-    }
-    else {
-      console.log('Sent:', './404.html');
-    }
-  });
-
+app.get('/sign_in', function (req, res) {
+  res.sendFile('./public/index.html', {root: __dirname});
 });
+
+app.post('login', function(req, res){
+  resp.end(JSON.stringify
 
 var server = app.listen(process.env.PORT || 5000, function () {
 

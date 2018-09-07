@@ -55,15 +55,13 @@
         </div>
     </div>
 
-                    <a href="index.html">
-                        <img class="text-center" src="http://getdrawings.com/image/car-logo-drawing-52.png" class="img-fluid" alt="Responsive image"/>
-                    </a>
-         
+
+         <br></br>  
     <section class="container u-full-width">
 
       <form v-on:submit='addCar'>
         <fieldset class="u-full-width">
-          <legend class="legend">Add New Car</legend>
+          <legend class="legend text-center">Add New Car</legend>
           <div class="row">
             
             <div class="two columns">
@@ -80,7 +78,7 @@
             </div>
             <div class="two columns">
               <label for="reparation" class="data">Reparation to do:</label>
-              <input type="text"  class="cost u-full-width"  v-model='cars.reparation' placeholder="Reparation" required="required" />
+              <input type="text"  class="cost u-full-width"  v-model='cars.reparation' placeholder="Reparation to do" required="required" />
             </div>
             <div class="two columns">
               <label for="cost" class="data">Cost:</label>

@@ -1,14 +1,16 @@
+'user_strict';
+
+var http = require('http');
+
 var express = require('express');
 var app = express();
 
-
-
-app.use(express.static('public'));
+app.use(express.static('views'));
 
 app.use('/', function (req, res, next) {
 
   var options = {
-    root: __dirname + 'publi/views/',
+    root: __dirname + '/views/',
     dotfiles: 'deny',
     headers: {
         'x-timestamp': Date.now(),

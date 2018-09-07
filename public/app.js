@@ -128,7 +128,7 @@ $(function() {
   // event listener for the create garage button, clears table and stores garage in firebase
   $('#user-button').on('click', function() {
     $('.warning').remove();
-    if ($('#make1').text() !== '') {
+    //if ($('#make1').text() !== '') {
       if ($('#user-pw').val() !== '') {
         var firstName = $.trim($('#first-name').val());
         var lastName  = $.trim($('#last-name').val());
@@ -155,11 +155,11 @@ $(function() {
                    .attr({ 'id': 'create-warning', 'class': 'warning two columns' })
                    .text('Please enter a password.'));
       }
-    } else {
-      $('#retrieve-button').after($('<p>')
+    //} else {
+     /* $('#retrieve-button').after($('<p>')
                    .attr({ 'id': 'create-warning', 'class': 'warning two columns' })
-                   .text('Please enter at least one car'));
-    }
+                   .text('Please enter at least one car'));*/
+    //}
   });
 
   //Click event to retrieve all ready saved garages for editing.

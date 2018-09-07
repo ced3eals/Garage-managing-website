@@ -9,7 +9,7 @@ var session;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.use(session({
+app.use(sessions({
   secret: 'uinjmiomlnôpùçiyè_yoiulhnkj'
 }))
 
@@ -20,7 +20,22 @@ app.get('/sign_in', function (req, res) {
 });
 
 app.post('login', function(req, res){
-  resp.end(JSON.stringify
+  res.end(JSON.stringify(req.body));
+  if(req.body.email == 'admin' && req.body.password =='admin'){
+    session.id = req.body.username;
+  }
+  res.redirect('/redirects');
+});
+
+
+app.get('/redirects', function (req, resp){
+  if (session.id){
+    resp.redirect('admin');
+  } else {
+    resp.end('Who are you ?');
+  }
+});
+
 
 var server = app.listen(process.env.PORT || 5000, function () {
 

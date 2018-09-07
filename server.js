@@ -1,94 +1,38 @@
-var http = require('http');
-var fs = require('fs');
+
 var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
-var vm = require('vm');
-var sessions = require('express-session');
-var jsonFile = require('jsonfile');
-
-var session;
-
 var app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(sessions({
-  secret: 'fevrzdsvsdvé$$ù'
-}))
-app.use('/public', express.static('public'));
-// Parse mail and password
-var contenu;
-contenu = fs.readFileSync("./src/logs.json", "UTF-8");
-var js = JSON.parse(contenu);
 
-app.get('/s', function (req,resp){
-  session = req.session;
-  if (session.uniqueID) {
-    resp.redirect('/redirects');
-  }
+app.use(express.static('public'));
 
-  resp.sendFile(__dirname + '/views/sign_in.html');
+app.use('/', function (req, res, next) {
 
-  
-});
-//Sign up
-app.get('/signup', function(req,resp){
-  resp.sendFile('./src/signUp.html',{root:__dirname});
-})
-
-//Login test
-app.post('/login', function (req,resp){
-  //resp.end(JSON.stringify(req.body));
-  var contenu;
-  contenu = fs.readFileSync("./storage/account.json", "UTF-8");
-  var js = JSON.parse(contenu);
-  session = req.session;
-  if (session.uniqueID) {
-    resp.redirect('/redirects');
-  }
-  for(var i = 0; i<js.length; i++){
-  if(req.body.email == js[i].email && req.body.password == js[i].password){
-    session.uniqueID = req.body.email;
-  }
-  }
-  resp.redirect('/redirects');
-});
-
-app.post('/logout', function(req,resp){
-  req.session.destroy(function(error){
-    console.log(error);
-    resp.redirect('/login');
-  });
-});
-app.get('/redirects', function(req,resp){
-  session = req.session;
-  if (session.uniqueID) {
-    resp.sendFile('./src/contact.html',{root:__dirname});
-  }
-  else {
-    resp.sendFile(__dirname + '/views/signin.html');
-  }
-})
-app.post('/createAccount', function(req,resp){ //Post Response
-  var mail = req.body.email;
-  var password = req.body.password;
-
-   try {
-        let userData = fs.readFileSync('./storage/account.json');
-        userData = JSON.parse(userData);
-        userData.push({
-           email:mail,
-           password:password
-        });
-        fs.writeFileSync('./storage/account.json', JSON.stringify(userData,null,2));
-    } catch (error) {
-        console.log(error);
+  var options = {
+    root: __dirname + '/public/',
+    dotfiles: 'deny',
+    headers: {
+        'x-timestamp': Date.now(),
+        'x-sent': true
     }
-  resp.sendFile('./src/create.html',{root:__dirname});
+  };
+
+  var fileName = req.params.name;
+  res.sendFile('./404.html', options, function (err) {
+    if (err) {
+      console.log(err);
+      res.status(err.status).end();
+    }
+    else {
+      console.log('Sent:', './404.html');
+    }
+  });
+
 });
 
+var server = app.listen(process.env.PORT || 5000, function () {
 
+  var host = server.address().address;
+  var port = server.address().port;
 
-app.listen(3000,function(){
-  console.log('Listening at port 3000');
-})
+  console.log('I am listening at http://%s:%s', host, port);
+
+});

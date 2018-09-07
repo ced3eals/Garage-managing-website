@@ -5,7 +5,7 @@ $(function() {
   var garagesRef   = ref.child('garage');
   var counter      = 1;
 
-  function Car(, year, make, model, cost, reparation) {
+  function Car(year, make, model, cost, reparation) {
     this.year  = year;
     this.make  = make;
     this.model = model;
@@ -21,8 +21,8 @@ $(function() {
     this.cars      = [];
   }
 
-  Garage.prototype.addCars = function(, year, make, model, cost, reparation){
-    this.cars.push(new Car(, year, make, model, cost, reparation));
+  Garage.prototype.addCars = function(year, make, model, cost, reparation){
+    this.cars.push(new Car(year, make, model, cost, reparation));
   };
 
   //clears the most recently populated row on the create page.
@@ -128,7 +128,7 @@ $(function() {
   // event listener for the create garage button, clears table and stores garage in firebase
   $('#user-button').on('click', function() {
     $('.warning').remove();
-    if ($('#color1').text() !== '') {
+    if ($('#make1').text() !== '') {
       if ($('#user-pw').val() !== '') {
         var firstName = $.trim($('#first-name').val());
         var lastName  = $.trim($('#last-name').val());
@@ -136,8 +136,8 @@ $(function() {
         var password  = $.trim($('#user-pw').val());
         var newGarage = new Garage(firstName, lastName, email, password);
         for (var i = 1; i <= 5; i++) {
-          if ($('#color' + i).text() !== '') {
-          newGarage.addCars($('#color' + i).text(), $('#year' + i).text(), $('#make' + i).text(), $('#model' + i).text(), $('#cost' + i).text());
+          if ($('#make' + i).text() !== '') {
+          newGarage.addCars($('#year' + i).text(), $('#make' + i).text(), $('#model' + i).text(), $('#cost' + i).text());
           }
         }
         garagesRef.child(newGarage.firstName + newGarage.lastName).set(newGarage);

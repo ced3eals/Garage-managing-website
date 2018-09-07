@@ -13,7 +13,6 @@
     <link rel="stylesheet" type="text/css" href="app.css">
     <link rel="stylesheet" type="text/css" href="boostrap.css">
 
-
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora|PT+Sans" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -46,11 +45,13 @@
                     <a href="index.html"><button type="button">Home</button></a>
                     <a href="create.html"><button type="button">Create</button></a>
                     <a href="view.html"><button type="button">View</button></a>
-                    <a href="sign_in.html"><button type="button">Sign In</button></a>
-                  <a class="text-center">         Welcome to Lincey App!</a>
 				</ul>
-
-            </div>
+<ul class="nav navbar-nav navbar-right">
+		
+             <a href="sign_in.html"><button type="button">Sign In</button></a>
+            <a href="sign_in.html"><button type="button">Sign In</button></a>
+	</ul>
+</div>
         </div>
     </div>
 
@@ -61,10 +62,6 @@
         <fieldset class="u-full-width">
           <legend class="legend">Add New Car</legend>
           <div class="row">
-            <div class="two columns">
-              <label for="color" class="data">Color:</label>
-              <input type="text"  class="color u-full-width"  v-model='cars.color' placeholder="Color" required="required" />
-            </div>
             <div class="two columns">
               <label for="year" class="data">Year:</label>
               <input type="number"  class="year u-full-width"  v-model='cars.date' placeholder="Year" required="required" />
@@ -101,20 +98,16 @@
         <table class="twelve columns">
           <thead>
 
-              <th>Color</th>
               <th>Year</th>
               <th>Make</th>
               <th>Model</th>
               <th>Cost</th>
               <th>Réparation</th>
 
-
           </thead>
 
           <tbody>
             <tr v-for='car in cars'>
-
-            <td><car-component v-bind:car="car"> </car-component></td>
               <td><car-date v-bind:car="car"> </car-date></td>
               <td><car-make v-bind:car="car"> </car-make> </td>
               <td><car-model v-bind:car="car"> </car-model></td>
@@ -126,7 +119,7 @@
             </tr>
           </tbody>
         </table>
-        <p> click on the data to edit and then press enter to save<p>
+        <p> Click on the data to edit and then press enter to save<p>
       </div>
     </section>
 
@@ -169,27 +162,6 @@
   </div>
 
     <script>
-var CarComponent = Vue.extend({
-  data: function(){
-    return{
-      inEditMode: false
-    }
-  },
-  props: ['car'],
-  template:'<div> <span v-on:click="clicked" v-show="!inEditMode"> {{ car.color }} </span> <input v-on:keyup.enter="saved" v-model="car.color" v-show="inEditMode"/> </div>',
-  methods:{
-    clicked: function(){
-      this.inEditMode = true;
-    },
-    saved: function(){
-      this.inEditMode = false;
-    }
-  }
-});
-Vue.component('car-component', CarComponent);
-
-
-
 
 var CarDate = Vue.extend({
   data: function(){

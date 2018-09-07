@@ -16,13 +16,13 @@ app.use('/', function (req, res, next) {
   };
 
   var fileName = req.params.name;
-  res.sendFile('./404.html', options, function (err) {
+  res.sendFile('./error.html', options, function (err) {
     if (err) {
       console.log(err);
       res.status(err.status).end();
     }
     else {
-      console.log('Sent:', './404.html');
+      console.log('Sent:', './error.html');
     }
   });
 

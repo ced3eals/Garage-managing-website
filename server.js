@@ -10,13 +10,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(sessions({
-  secret: 'uinjmiomlnôpùçiyè_yoiulhnkj'
+  secret: 'uinjmiomlnôpùçiyè_yoiulhnkj',
+  resave: false,
+  saveUninitialized: true
 }))
 
 app.use(express.static('public'));
 
-app.get('/sign_in', function (req, res) {
-  res.sendFile('./public/index.html', {root: __dirname});
+app.get('/', function (req, res) {
+  res.sendFile('public/sign_in.html', {root: __dirname});
 });
 
 app.post('login', function(req, res){

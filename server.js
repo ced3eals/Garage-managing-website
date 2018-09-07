@@ -21,7 +21,7 @@ var contenu;
 contenu = fs.readFileSync("./src/logs.json", "UTF-8");
 var js = JSON.parse(contenu);
 
-app.get('/sign_in', function (req,resp){
+app.get('/s', function (req,resp){
   session = req.session;
   if (session.uniqueID) {
     resp.redirect('/redirects');
@@ -32,7 +32,7 @@ app.get('/sign_in', function (req,resp){
   
 });
 //Sign up
-app.get('/sign_in', function(req,resp){
+app.get('/signup', function(req,resp){
   resp.sendFile('./src/signUp.html',{root:__dirname});
 })
 
@@ -40,7 +40,7 @@ app.get('/sign_in', function(req,resp){
 app.post('/login', function (req,resp){
   //resp.end(JSON.stringify(req.body));
   var contenu;
-  contenu = fs.readFileSync("./src/logs.json", "UTF-8");
+  contenu = fs.readFileSync("./storage/account.json", "UTF-8");
   var js = JSON.parse(contenu);
   session = req.session;
   if (session.uniqueID) {

@@ -8,7 +8,7 @@ app.use(express.static('public'));
 app.use('/', function (req, res, next) {
 
   var options = {
-    root: __dirname + '/views/index.html',
+    root: __dirname + 'publi/views/',
     dotfiles: 'deny',
     headers: {
         'x-timestamp': Date.now(),

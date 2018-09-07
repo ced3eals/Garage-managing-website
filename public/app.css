@@ -34,7 +34,7 @@ button {
   text-align: center;
   border-radius: 3px;
   border: 1px solid #000000;
-  background-color: #535956;
+  background-color: #d6d6d6;
   -webkit-box-shadow: 1px 5px 2px 0px #000000;
   -moz-box-shadow:    1px 5px 2px 0px #000000;
   box-shadow:         1px 5px 2px 0px #000000;
@@ -46,7 +46,7 @@ button:active {
   box-shadow: 0 2px 0 #000000;
   transform: translateY(3px);
   color: #1B11;
-  background-color: #EAA023;
+  background-color: #ef0033;
 }
 
 button:hover {
@@ -59,7 +59,7 @@ button:focus {
 
 .active {
   background-color: #3417b5;
-  color: ##3417b5;
+  color: #1C4B11;
 }
 
 button a {

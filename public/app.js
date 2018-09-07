@@ -5,8 +5,7 @@ $(function() {
   var garagesRef   = ref.child('garage');
   var counter      = 1;
 
-  function Car(color, year, make, model, cost, reparation) {
-    this.color = color;
+  function Car(, year, make, model, cost, reparation) {
     this.year  = year;
     this.make  = make;
     this.model = model;
@@ -22,8 +21,8 @@ $(function() {
     this.cars      = [];
   }
 
-  Garage.prototype.addCars = function(color, year, make, model, cost, reparation){
-    this.cars.push(new Car(color, year, make, model, cost, reparation));
+  Garage.prototype.addCars = function(, year, make, model, cost, reparation){
+    this.cars.push(new Car(, year, make, model, cost, reparation));
   };
 
   //clears the most recently populated row on the create page.
@@ -34,7 +33,6 @@ $(function() {
     var totalCost = parseInt($('#total-cost').text());
     var cost      = parseInt($('#cost' + counter).text());
     $('#total-cost').text(totalCost - cost);
-    $('#color' + counter).text('');
     $('#year' + counter).text('');
     $('#make' + counter).text('');
     $('#model' + counter).text('');
@@ -63,7 +61,6 @@ $(function() {
                                    .append($('<th>').text('Year'))
                                    .append($('<th>').text('Make'))
                                    .append($('<th>').text('Model'))
-                                   .append($('<th>').text('Color'))
                                    .append($('<th>').text('Cost'))
                                    );
       for (var j = 0; j < garageList[key].cars.length; j++) {
@@ -71,7 +68,6 @@ $(function() {
                                       .append($('<td>').text(garageList[key].cars[j].year))
                                       .append($('<td>').text(garageList[key].cars[j].make))
                                       .append($('<td>').text(garageList[key].cars[j].model))
-                                      .append($('<td>').text(garageList[key].cars[j].color))
                                       .append($('<td>').text(garageList[key].cars[j].cost))
                                       .append($('<td>').text(garageList[key].cars[j].reparation))
                                       );
@@ -97,14 +93,12 @@ $(function() {
         if(costInput <= 0) {
           $('#remove').after($('<p>')
                    .attr({ 'id': 'costWarning', 'class': 'warning' })
-                   .text('Car cost must be greater than zero'));
-        } else if (total <= 1000000) {
-          var color = $('#color').val();
+                   .text('Car reparation cost must be greater than zero'));
+        } else if (total <= 500000) {
           var make  = $('#make').val();
           var model = $('#model').val();
           var cost  = $('#cost').val();
           var reparation = $('#reparation').val();
-          $('#color' + counter).text(color);
           $('#year' + counter).text(year);
           $('#make' + counter).text(make);
           $('#model' + counter).text(model);
@@ -117,12 +111,12 @@ $(function() {
           $('#total-cost').text(total - costInput);
           $('#remove').after($('<p>')
                    .attr({ 'id': 'add-warning', 'class': 'warning' })
-                   .text('Total Must Be Less Than $1,000,000'));
+                   .text('Total Must Be Less Than 500 000 €'));
         }
       } else {
         $('#remove').after($('<p>')
                  .attr({ 'id': 'year-warning', 'class': 'warning' })
-                 .text('Year must be 4 digits between 1750 to 2100'));
+                 .text('Year must be 4 digits between 1970 to 2200'));
     }
   });
 

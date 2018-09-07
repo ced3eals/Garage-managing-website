@@ -62,10 +62,7 @@
         <fieldset class="u-full-width">
           <legend class="legend">Add New Car</legend>
           <div class="row">
-            <div class="two columns">
-              <label for="year" class="data">Year:</label>
-              <input type="number"  class="year u-full-width"  v-model='cars.date' placeholder="Year" required="required" />
-            </div>
+            
             <div class="two columns">
               <label for="make" class="data">Make:</label>
               <input type="text"  class="make u-full-width"  v-model='cars.make' placeholder="Make" required="required" />
@@ -75,13 +72,18 @@
               <input type="text"  class="model u-full-width"  v-model='cars.model' placeholder="Model" required="required" />
             </div>
             <div class="two columns">
-              <label for="cost" class="data">Cost:</label>
-              <input type="number"  class="cost u-full-width"  v-model='cars.cost' placeholder="Cost" required="required" />
+              <label for="year" class="data">Year:</label>
+              <input type="number"  class="year u-full-width"  v-model='cars.date' placeholder="Year" required="required" />
             </div>
             <div class="two columns">
               <label for="reparation" class="data">Reparation to do:</label>
               <input type="text"  class="cost u-full-width"  v-model='cars.reparation' placeholder="Reparation" required="required" />
             </div>
+            <div class="two columns">
+              <label for="cost" class="data">Cost:</label>
+              <input type="number"  class="cost u-full-width"  v-model='cars.cost' placeholder="Cost" required="required" />
+            </div>
+            
             <div class="two columns">
 
               <button type="submit" value='Add' class="u-full-width">Add Car</button>
@@ -98,21 +100,25 @@
         <table class="twelve columns">
           <thead>
 
-              <th>Year</th>
+              
               <th>Make</th>
               <th>Model</th>
+            <th>Year</th>
+            <th>Réparation</th>
               <th>Cost</th>
-              <th>Réparation</th>
+              
 
           </thead>
 
           <tbody>
             <tr v-for='car in cars'>
-              <td><car-date v-bind:car="car"> </car-date></td>
+              
               <td><car-make v-bind:car="car"> </car-make> </td>
               <td><car-model v-bind:car="car"> </car-model></td>
-              <td><car-cost v-bind:car="car"> </car-cost> </td>
+              <td><car-date v-bind:car="car"> </car-date></td>
               <td><car-reparation v-bind:car="car"> </car-reparation> </td>
+              <td><car-cost v-bind:car="car"> </car-cost> </td>
+              
 
               <td><button class="btn btn-danger btn-block" v-on:click="deleteCar(car)">Delete</button></td>
 
@@ -282,7 +288,6 @@ Vue.component('car-reparation', Carreparation);
         addCar: function(e) {
           e.preventDefault();
           this.cars.push({
-            color: this.cars.color,
             date: this.cars.date,
             make: this.cars.make,
             model: this.cars.model,

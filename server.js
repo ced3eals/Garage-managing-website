@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
+var sessions = require('express-session');
 
+var session;
 
 
 app.use(express.static('public'));

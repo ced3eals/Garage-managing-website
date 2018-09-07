@@ -45,7 +45,7 @@ button:active {
   -moz-box-shadow: 0 2px 0 #000000;
   box-shadow: 0 2px 0 #000000;
   transform: translateY(3px);
-  color: #1C4B11;
+  color: #1B11;
   background-color: #EAA023;
 }
 
@@ -58,8 +58,8 @@ button:focus {
 }
 
 .active {
-  background-color: #FFCB0D;
-  color: #1C4B11;
+  background-color: #3417b5;
+  color: ##3417b5;
 }
 
 button a {

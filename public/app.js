@@ -1,7 +1,7 @@
 $(function() {
 
   var tableCounter = 0;
-  var ref          = new Firebase('https://dream-car-garage.firebaseio.com/');
+  var ref          = new Firebase('https://my-project-1525350368229.firebaseio.com');
   var garagesRef   = ref.child('garage');
   var counter      = 1;
 

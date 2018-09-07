@@ -1,11 +1,20 @@
 var express = require('express');
 var app = express();
-var assets = require('./assets');
 
 
-app.use(express.static('./public'));
 
-app.use('/assets', assets);
+app.use(express.static('public'));
+
+app.use('/', function (req, res, next) {
+
+  var options = {
+    root: __dirname + '/views/index.html',
+    dotfiles: 'deny',
+    headers: {
+        'x-timestamp': Date.now(),
+        'x-sent': true
+    }
+  };
 
   var fileName = req.params.name;
   res.sendFile('./404.html', options, function (err) {
